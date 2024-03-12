@@ -1,4 +1,4 @@
-import desafio.elo7.classes.Starter;
+import desafio.elo7.handler.Starter;
 
 import java.io.IOException;
 

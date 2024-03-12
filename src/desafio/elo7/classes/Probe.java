@@ -7,7 +7,7 @@ public class Probe {
     private int guidance = 0;
 
     public int getPositionInX() {
-        if(this.positionInX < 0) this.positionInX = this.positionInX * -1 * 4 % 5;
+        if(this.positionInX < 0) this.positionInX = this.positionInX * -4 % 5;
         return this.positionInX;
     }
 

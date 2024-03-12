@@ -5,7 +5,7 @@ public class Terminal {
     private final char[] commands = {'M', 'L', 'R'};
     private final String[] guidances = {"North, ↑", "West, ←", "South, ↓", "East, →"};
 
-    public void moveProbe(Probe probe, char[] command){
+    public Probe moveProbe(Probe probe, char[] command){
         for (char c : command) {
             if (c == commands[0] && guidances[probe.getGuidance()] == guidances[0]) {
                 int newPositionInY = (probe.getPositionInY() + 1) % 5;
@@ -30,5 +30,6 @@ public class Terminal {
             if (c == commands[1]) probe.setGuidance((probe.getGuidance() + 1) % 4);
             if (c == commands[2]) probe.setGuidance((probe.getGuidance() - 1) % 4);
         }
+        return probe;
     }
 }
