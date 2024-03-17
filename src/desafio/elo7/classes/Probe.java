@@ -2,31 +2,30 @@ package desafio.elo7.classes;
 
 public class Probe {
 
-    private int positionInX = 0;
-    private int positionInY = 0;
+    private int[] position = {0,0};
     private int guidance = 0;
 
     public int getPositionInX() {
-        if(this.positionInX < 0) this.positionInX = this.positionInX * -4 % 5;
-        return this.positionInX;
+        if(this.position[0] < 0) this.position[0] = this.position[0] * -4 % 5;
+        return this.position[0];
     }
 
     public int getPositionInY() {
-        if(this.positionInY < 0) this.positionInY = this.positionInY  * -4 % 5;
-        return this.positionInY;
+        if(this.position[1] < 0) this.position[1] = this.position[1]  * -4 % 5;
+        return this.position[1];
     }
 
     public int getGuidance() {
-        if(this.guidance < 0) this.guidance = this.guidance * -3 % 5;
+        if(this.guidance < 0) this.guidance = this.guidance * -3 % 4;
         return this.guidance;
     }
 
     public void setPositionInX(int x){
-        this.positionInX = x;
+        this.position[0] = x;
     }
 
-    public void setPositionInY(int positionInY) {
-        this.positionInY = positionInY;
+    public void setPositionInY(int y) {
+        this.position[1] = y;
     }
 
     public void setGuidance(int guidance) {
