@@ -2,21 +2,22 @@ package desafio.elo7.classes;
 
 public class Probe {
 
-    private int[] position = {0,0};
-    private int guidance = 0;
+    private final int[] position = {1,1};
+    private String guidance = "North, ↑";
 
     public int getPositionInX() {
-        if(this.position[0] < 0) this.position[0] = this.position[0] * -4 % 5;
+        if(this.position[0] == 0) this.position[0] = 5;
+        if(this.position[0] < 0) this.position[0] = this.position[0] * -5 % 6;
         return this.position[0];
     }
 
     public int getPositionInY() {
-        if(this.position[1] < 0) this.position[1] = this.position[1]  * -4 % 5;
+        if(this.position[1] == 0) this.position[1] = 5;
+        if(this.position[1] < 0) this.position[1] = this.position[1]  * -5 % 6;
         return this.position[1];
     }
 
-    public int getGuidance() {
-        if(this.guidance < 0) this.guidance = this.guidance * -3 % 4;
+    public String getGuidance() {
         return this.guidance;
     }
 
@@ -28,14 +29,13 @@ public class Probe {
         this.position[1] = y;
     }
 
-    public void setGuidance(int guidance) {
+    public void setGuidance(String guidance) {
         this.guidance = guidance;
     }
 
     @Override
     public String toString() {
-        String[] guidances = {"North, ↑", "West, ←", "South, ↓", "East, →"};
-        return "X = " + (getPositionInX() + 1)  + " Y = " + (getPositionInY() + 1) +
-                " " + guidances[getGuidance()];
+        return "X = " + getPositionInX() + " Y = " + getPositionInY() +
+                " " + getGuidance();
     }
 }
